@@ -15,11 +15,14 @@ class ProductService
 
     public function addProduct(int $productID,string $name,string $price)
     {
+        if ($this->checkExistProduct($productID)) {
+            return 0;
+        }
         return $this->productRepository->addProduct($productID, $name, $price);
     }
 
-    public function checkExistProduct(string $name): bool
+    public function checkExistProduct(int $productID): bool
     {
-        return $this->productRepository->checkExistProduct($name);
+        return $this->productRepository->checkExistProduct($productID);
     }
 }

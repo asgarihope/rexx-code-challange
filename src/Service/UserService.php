@@ -13,13 +13,15 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
-    public function registerUser($name, $email, $password)
+    public function registerUser($name, $email): int
     {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        return $this->userRepository->addUser($name, $email, $hashedPassword);
+        if ($userID=$this->checkExistEmail($email)) {
+            return $userID;
+        }
+        return $this->userRepository->addUser($name, $email);
     }
 
-    public function checkExistEmail(string $email): bool
+    public function checkExistEmail(string $email): ?int
     {
         return $this->userRepository->checkExistEmail($email);
     }

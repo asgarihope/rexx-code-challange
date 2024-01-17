@@ -12,11 +12,11 @@ class UserRepository
         $this->userModel = $userModel;
     }
 
-    public function addUser(string $name,string $email,string $hashedPassword) {
-        return $this->userModel->createUser($name, $email, $hashedPassword);
+    public function addUser(string $name,string $email) {
+        return $this->userModel->createUser($name, $email);
     }
 
-    public function checkExistEmail(string $email) {
+    public function checkExistEmail(string $email) :?int{
         return $this->userModel->checkExistEmail($email);
     }
 }

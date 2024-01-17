@@ -15,6 +15,9 @@ class SaleService
 
     public function addSale(int $saleID, int $userID, int $productID, string $date): int
     {
+        if ($this->checkExistSale($saleID)) {
+            return 0;
+        }
         return $this->saleRepository->addSale($saleID, $userID, $productID, $date);
     }
 
