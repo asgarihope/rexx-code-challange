@@ -1,0 +1,15 @@
+{
+    "name": "rexx/omid",
+    "description": "My beauty code challenge",
+    "autoload": {
+        "psr-4": {
+            "Rexx\\Omid\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Omid Asgari"
+        }
+    ],
+    "require": {}
+}
