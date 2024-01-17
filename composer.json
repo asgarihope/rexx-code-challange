@@ -1,15 +1,20 @@
 {
-    "name": "rexx/omid",
-    "description": "My beauty code challenge",
-    "autoload": {
-        "psr-4": {
-            "Rexx\\Omid\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Omid Asgari"
-        }
-    ],
-    "require": {}
+  "name": "rexx/omid",
+  "description": "My beauty code challenge",
+  "autoload": {
+    "psr-4": {
+      "Rexx\\Omid\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Omid Asgari"
+    }
+  ],
+  "require": {
+    "php": "7.1"
+  },
+  "scripts": {
+    "start": "php -S localhost:8000"
+  }
 }
