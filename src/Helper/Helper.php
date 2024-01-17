@@ -12,7 +12,8 @@ class Helper
         die;
     }
 
-    static function view(string $layout){
+    static function view(string $layout, string $title = '')
+    {
         ob_start();
         include $layout;
         $content = ob_get_clean();

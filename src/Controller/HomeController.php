@@ -23,13 +23,11 @@ class HomeController
 
     public function index()
     {
-//        dd( $this->userService->checkExistEmail( 'dsf@fsd.sdf'));
-//        $this->userService->registerUser('omid', 'dsf@fsd.sdf', 'sdfsdf');
-        Helper::view('src/Views/home.php');
+        Helper::view('src/Views/home.php','Omid Asgari Project');
     }
 
     public function about()
     {
-        echo 'about';
+        Helper::view('src/Views/about.php','About');
     }
 }
