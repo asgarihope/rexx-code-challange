@@ -3,7 +3,10 @@
   "description": "My beauty code challenge",
   "autoload": {
     "psr-4": {
-      "Rexx\\Omid\\": "src/"
+      "Model\\": "src/Model",
+      "Repository\\": "src/Repository",
+      "Service\\": "src/Service",
+      "Helper\\": "src/Helper"
     }
   },
   "authors": [
