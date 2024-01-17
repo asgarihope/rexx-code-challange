@@ -1,5 +1,6 @@
 <?php
 
+namespace core;
 class Router
 {
     private $routes = [];
@@ -12,7 +13,7 @@ class Router
     public function route($uri, $db): void
     {
         if (!array_key_exists($uri, $this->routes)) {
-            echo '404 Not Found';
+            echo "No route found for URI: $uri";
             return;
         }
 
