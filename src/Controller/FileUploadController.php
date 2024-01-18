@@ -68,7 +68,9 @@ class FileUploadController
             );
         }
 
-        Helper::view('src/Views/home.php');
+        $data=['success'=>'Done, your data imported and for get report you can click on the report button 
+        in the header and select a period for getting results'];
+        Helper::view('src/Views/home.php','',$data);
     }
 
 }
