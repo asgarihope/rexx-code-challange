@@ -37,35 +37,38 @@ class FileUploadController
 
     public function uploadJson()
     {
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        if ($finfo->file($_FILES['data']['tmp_name']) !== 'application/json') {
+            throw new RuntimeException('Invalid file format.');
+        }
+
         $jsonData = file_get_contents($_FILES['data']['tmp_name']);
         $data = json_decode($jsonData, true);
 
-        $data = json_decode($jsonData, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new RuntimeException('Invalid JSON format: ' . json_last_error_msg());
+        }
+
+
         foreach ($data as $item) {
             $userID = $this->userService->registerUser(
-                $item['customer_name'],
-                $item['customer_mail']
+                filter_var($item['customer_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                filter_var($item['customer_mail'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
             );
             $this->productService->addProduct(
-                $item['product_id'],
-                $item['product_name'],
-                $item['product_price']
+                filter_var($item['product_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                filter_var($item['product_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                filter_var($item['product_price'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
             );
             $this->saleService->addSale(
-                $item['sale_id'],
+                filter_var($item['sale_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
                 $userID,
-                $item['product_id'],
-                $item['sale_date']
+                filter_var($item['product_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                filter_var($item['sale_date'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
             );
         }
-//        $this->productService->addProduct()
-//        dd( $this->userService->checkExistEmail( 'dsf@fsd.sdf'));
-//        $this->userService->registerUser('omid', 'dsf@fsd.sdf', 'sdfsdf');
+
         Helper::view('src/Views/home.php');
     }
 
-    public function about()
-    {
-        echo 'about';
-    }
 }
