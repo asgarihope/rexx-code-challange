@@ -7,7 +7,7 @@
         <form action="upload-json" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="formFile" class="form-label">Upload Your Data</label>
-                <input class="form-control" name="data" type="file" id="formFile">
+                <input class="form-control" name="data" type="file" required id="formFile">
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-dark">Upload</button>
