@@ -6,7 +6,8 @@
       "Model\\": "src/Model",
       "Repository\\": "src/Repository",
       "Service\\": "src/Service",
-      "Helper\\": "src/Helper"
+      "Helper\\": "src/Helper",
+      "core\\": "core"
     }
   },
   "authors": [
