@@ -1,14 +1,15 @@
 <?php
 
 namespace core;
+
 use mysqli;
 
 class Database
 {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = '123456789';
-    private $dbname = 'rexx';
+    private $host = Config::DB_HOST;
+    private $user = Config::DB_USER;
+    private $pass = Config::DB_PASSWORD;
+    private $dbname = Config::DB_NAME;
 
     public function connect()
     {
