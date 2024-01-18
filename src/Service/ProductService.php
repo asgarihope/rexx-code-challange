@@ -16,7 +16,7 @@ class ProductService
     public function addProduct(int $productID,string $name,string $price)
     {
         if ($this->checkExistProduct($productID)) {
-            return 0;
+            return $productID;
         }
         return $this->productRepository->addProduct($productID, $name, $price);
     }
